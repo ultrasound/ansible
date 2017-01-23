@@ -1,0 +1,11 @@
+---
+# tasks file for webservers
+
+- include: setup_virtualenv.yml
+  tags: virtualenv
+
+- include: setup_django_app.yml
+  tags: deploy
+
+- include: set_file_permissions.yml
+  tags: deploy

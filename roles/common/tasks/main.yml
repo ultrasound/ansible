@@ -1,0 +1,11 @@
+---
+# tasks file for common
+
+- include: setup_ntp.yml
+  tags: ntp
+
+- include: setup_packages.yml
+  tags: packages
+
+- include: setup_python34.yml
+  tags: python34

@@ -1,0 +1,18 @@
+---
+
+- name: Install virtualenv
+  become: true
+  become_method: sudo
+  become_user: root
+  pip: name=virtualenv
+       executable=/usr/bin/pip3
+  tags: packages
+
+- name: Create the virtualenv
+  command: virtualenv -p {{ virtualenv_python_version }} {{ virtualenv_path }}
+           creates={{ virtualenv_path }}/bin/activate
+
+- name: Create the maintenance page
+  template: src=maintenance_off.html
+            dest={{ virtualenv_path }}/maintenance_off.html
+            mode=0664

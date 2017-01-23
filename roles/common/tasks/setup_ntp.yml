@@ -1,0 +1,47 @@
+---
+
+- name: Install ntp
+  become: true
+  become_method: sudo
+  become_user: root
+  apt: name=ntp update_cache=yes state=present
+  tags: ntp
+
+- name: Configure ntp file
+  become: true
+  become_method: sudo
+  become_user: root
+  template: src=ntp.conf.j2 dest=/etc/ntp.conf
+  notify: # call handlers
+          - restart ntpd
+  tags: ntp
+
+- name: Start the ntp service and enable
+  become: true
+  become_method: sudo
+  become_user: root
+  service:
+          name=ntp
+          state=started
+          enabled=yes
+          pattern='/ntpd'
+  tags: ntp
+
+## For redhat
+#- name: Install ntp
+#  yum: name=ntp state=present
+#  tags: ntp
+
+#- name: Configure ntp file
+#  template: src=ntp.conf.j2 dest=/etc/ntp.conf
+#  tags: ntp
+#  notify: restart ntp
+
+#- name: Start the ntp service
+#  service: name=ntpd state=started enabled=yes
+#  tags: ntp
+
+#- name: test to see if selinux is running
+#  command: getenforce
+#  register: sestatus
+#  changed_when: false
