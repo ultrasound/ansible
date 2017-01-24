@@ -12,4 +12,5 @@
           - libssl-doc
           - tree
           - git
+          - sqlite3
   tags: packages
