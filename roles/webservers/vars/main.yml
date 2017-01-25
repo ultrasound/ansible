@@ -5,7 +5,7 @@
 virtualenv_python_version: python3
 
 # Application settings.
-virtualenv_path: "/home/vagrant/webapps/blogs"
+virtualenv_path: "/vagrant/webapps/venv"
 project_path: "{{ virtualenv_path }}/ultrasound"
 requirements_file: "{{ project_path }}/requirements.txt"
 
