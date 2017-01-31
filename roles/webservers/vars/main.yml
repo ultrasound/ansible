@@ -6,16 +6,16 @@ virtualenv_python_version: python3
 
 # Application settings.
 virtualenv_path: "/vagrant/webapps/venv"
-project_path: "{{ virtualenv_path }}/ultrasound"
-requirements_file: "{{ project_path }}/requirements.txt"
+project_path: "/vagrant/webapps/mysite"
+#requirements_file: "{{ project_path }}/requirements.txt"
 
 # Django environment vairables.
-django_environment:
-        DJANGO_SETTINGS_MODULE: "{{ project_path }}/settings.py"
+#django_environment:
+#        DJANGO_SETTINGS_MODULE: "{{ project_path }}/settings.py"
         #DJANGO_SECRET_KEY: "{{ django_secret_key }}"
         #MEDIA_ROOT:
-        STATIC_ROOT: "/static/"
-        DATABASE_NAME: "db.sqlite3"
-        DATABASE_USER: "admin"
-        DATABASE_PASSWORD: "rokmc913"
+#        STATIC_ROOT: "/static/"
+#        DATABASE_NAME: "db.sqlite3"
+#        DATABASE_USER: "admin"
+#        DATABASE_PASSWORD: "rokmc913"
         #BROKER_URL:
